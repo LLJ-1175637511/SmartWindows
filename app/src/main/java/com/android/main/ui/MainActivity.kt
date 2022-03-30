@@ -1,10 +1,18 @@
-package com.android.main
+package com.android.main.ui
 
 import android.annotation.SuppressLint
+import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.android.main.MainDataBean
+import com.android.main.MainVM
+import com.android.main.R
 import com.android.main.databinding.ActivityMainBinding
 import com.llj.baselib.IOTViewModel
 import com.llj.baselib.ui.IOTMainActivity
@@ -18,40 +26,29 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
 
     override fun init() {
         super.init()
-        vm.connect(this, MainDataBean::class.java)
+        initNav()
         initMainView()
     }
 
-    private fun initMainView() {
-//        initToolbar()
+    private fun initNav() {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        mDataBinding.navView.setupWithNavController(navController)
     }
 
-//    private fun initToolbar() {
-//        mDataBinding.toolbar.apply {
-//            toolbarBaseTitle.text = getString(R.string.app_name)
-//            toolbarBase.inflateMenu(R.menu.toolbar_menu)
-//            toolbarBase.setOnMenuItemClickListener { item ->
-//                when (item.itemId) {
-//                    R.id.quit_app -> {
-//                        startCommonActivity<LoginActivity>()
-//                        finish()
-//                    }
-//                }
-//                false
-//            }
-//        }
-//    }
+    private fun initMainView() {
+        vm.isMainPage.observe(this){
+            mDataBinding.toolbar.toolbarBase.visibility = if (it) View.GONE
+            else View.VISIBLE
+        }
+
+    }
 
     @SuppressLint("ResourceAsColor")
     override fun offDevLine() {
-        mDataBinding.tvDevState.setTextColor(R.color.red)
-        mDataBinding.tvDevState.text = "设备离线"
     }
 
     @SuppressLint("ResourceAsColor")
     override fun onDevLine() {
-        mDataBinding.tvDevState.setTextColor(R.color.greenDark)
-        mDataBinding.tvDevState.text = "设备在线"
     }
 
     override fun realData(data: Any?) {
@@ -59,7 +56,6 @@ class MainActivity : IOTMainActivity<ActivityMainBinding>() {
     }
 
     override fun webState(state: IOTViewModel.WebSocketType) {
-        mDataBinding.tvState.text = state.name
     }
 
     private fun showDialog(df: DialogFragment, tag: String) {

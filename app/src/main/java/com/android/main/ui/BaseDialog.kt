@@ -1,4 +1,4 @@
-package com.android.main
+package com.android.main.ui
 
 import android.content.Context
 import android.os.Bundle

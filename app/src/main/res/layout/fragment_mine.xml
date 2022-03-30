@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/common_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_rect_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivHead"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/head_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="玲艳"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/ivHead"
+                app:layout_constraintTop_toTopOf="@+id/ivHead" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="2dp"
+                android:text="累计使用8天"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHead"
+                app:layout_constraintStart_toStartOf="@+id/textView4" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/fire" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+
+            <TextView
+                android:id="@+id/tvUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="20dp"
+                android:textColor="@color/black_1"
+                android:textSize="14sp"
+                android:background="@drawable/shape_rect_white"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+                android:text="用户信息" />
+
+            <TextView
+                android:id="@+id/tvCallCenter"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="20dp"
+                android:textColor="@color/black_1"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape_rect_white"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+                android:text="客服中心" />
+
+            <TextView
+                android:id="@+id/tvAboutMe"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:paddingStart="20dp"
+                android:textColor="@color/black_1"
+                android:textSize="14sp"
+                android:background="@drawable/shape_rect_white"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+                android:text="关于我们" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvQuit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="退 出 登 录"
+            android:textColor="@color/white"
+            android:paddingTop="8dp"
+            android:layout_marginBottom="30dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="14sp"
+            android:background="@drawable/shape_rect_blue_low"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
