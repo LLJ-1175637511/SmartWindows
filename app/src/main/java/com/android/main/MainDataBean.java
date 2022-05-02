@@ -4,18 +4,23 @@ import com.llj.baselib.IOTInterfaceId;
 
 public class MainDataBean {
 
-    @IOTInterfaceId("14770")
+    @IOTInterfaceId("22755")
     private Float temp;
 
-
+    @IOTInterfaceId("22973")
     private Float humi;
 
-
+    @IOTInterfaceId("22759")
     private Float co2;
 
-
+    @IOTInterfaceId("22756")
     private Float pm25;
 
+    @IOTInterfaceId("22758")
+    private Float voice;
+
+    @IOTInterfaceId("22757")
+    private Float isRained;
 
     public Float getTemp() {
         return temp;
@@ -49,4 +54,19 @@ public class MainDataBean {
         this.pm25 = pm25;
     }
 
+    public Float getVoice() {
+        return voice;
+    }
+
+    public void setVoice(Float voice) {
+        this.voice = voice;
+    }
+
+    public Float getIsRained() {
+        return isRained;
+    }
+
+    public void setIsRained(Float isRained) {
+        this.isRained = isRained;
+    }
 }

@@ -11,26 +11,38 @@ class MainVM:IOTViewModel() {
     private var isVMInit = false
 
     fun connectForFragment(callBack: IOTCallBack, jClass: Class<*>){
-        if (isVMInit) return
+        if (isVMInit){
+            return
+        }
         connect(callBack, jClass)
         isVMInit = true
     }
 
-    fun turnOnFun() {
-        sendOrderToDevice("A")
-    }
+    //是否为自动
+    var isMode = false
 
-    fun turnOffFun() {
-        sendOrderToDevice("B")
-    }
-
-    fun turnOnWindow() {
-        sendOrderToDevice("D")
-    }
-
-    fun turnOffWindow() {
+    /**
+     * 自动
+     */
+    fun turnOnMode() {
+        isMode = true
         sendOrderToDevice("C")
     }
 
+    /**
+     * 手动
+     */
+    fun turnOffMode() {
+        isMode = false
+        sendOrderToDevice("D")
+    }
+
+    fun turnOnWindow() {
+        sendOrderToDevice("A")
+    }
+
+    fun turnOffWindow() {
+        sendOrderToDevice("B")
+    }
 
 }
